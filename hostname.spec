@@ -1,7 +1,7 @@
 Summary: Utility to set/show the host name or domain name
 Name: hostname
 Version: 3.13
-Release: 3%{?dist}
+Release: 3%{?dist}.1
 License: GPLv2+
 Group: System Environment/Base
 URL: http://packages.qa.debian.org/h/hostname.html
@@ -9,6 +9,7 @@ Source0: http://ftp.de.debian.org/debian/pool/main/h/hostname/hostname_%{version
 
 # Initial changes
 Patch1: hostname-rh.patch
+Patch2: hostname-fqdn_size.patch
 
 %description
 This package provides commands which can be used to display the system's
@@ -17,6 +18,7 @@ DNS name, and to display or set its hostname or NIS domain name.
 %prep
 %setup -q
 %patch1 -p1 -b .rh
+%patch2 -p1 -b .fqdn
 
 %build
 make CFLAGS="$RPM_OPT_FLAGS $CFLAGS"
@@ -30,6 +32,9 @@ make BASEDIR=%{buildroot} install
 %{_mandir}/man1/*
 
 %changelog
+* Mon Aug 12 2019 Pavel Zhukov <pzhukov@redhat.com> - 3.13-3.1
+- Fix fqdn buffer size
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.13-3
 - Mass rebuild 2014-01-24
 

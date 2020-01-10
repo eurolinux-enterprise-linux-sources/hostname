@@ -1,0 +1,13 @@
+diff --git a/hostname.c b/hostname.c
+index b192e74..ad6070c 100644
+--- a/hostname.c
++++ b/hostname.c
+@@ -279,7 +279,7 @@ show_name(enum type_t type)
+ 			break;
+ 		case ALL_IPS:
+ 		case ALL_FQDNS: {
+-			char buf[INET6_ADDRSTRLEN];
++			char buf[255];
+ 			int flags, ret, family, addrlen;
+ 
+ 			/* What kind of information do we want from getnameinfo()? */
