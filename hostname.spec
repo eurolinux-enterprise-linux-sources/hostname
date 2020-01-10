@@ -1,7 +1,7 @@
 Summary: Utility to set/show the host name or domain name
 Name: hostname
 Version: 3.13
-Release: 1%{?dist}
+Release: 3%{?dist}
 License: GPLv2+
 Group: System Environment/Base
 URL: http://packages.qa.debian.org/h/hostname.html
@@ -30,6 +30,12 @@ make BASEDIR=%{buildroot} install
 %{_mandir}/man1/*
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.13-3
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 3.13-2
+- Mass rebuild 2013-12-27
+
 * Tue Jun 18 2013 Jiri Popelka <jpopelka@redhat.com> - 3.13-1
 - 3.13: -v references removed upstream
 
